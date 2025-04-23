@@ -1,20 +1,18 @@
 alter table production_products
 add constraint fk_production_products
-	foreign key (brand_id) references production_brands (brand_id);
+	foreign key (brand_id) references production_brands (brand_id) on delete cascade on update cascade;
     
 alter table production_products
 add constraint fk_production_products_category
-	foreign key (category_id) references production_categories (category_id);
+	foreign key (category_id) references production_categories (category_id) on delete cascade on update cascade;
     
 alter table production_stocks
 add constraint fk_production_stocks_store
-	foreign key (store_id) references sales_stores (store_id)
-    on delete cascade on update cascade;
+	foreign key (store_id) references sales_stores (store_id) on delete cascade on update cascade;
     
 alter table production_stocks
 add constraint fk_production_stocks_product
-	foreign key (product_id) references production_products (product_id)
-    on delete cascade on update cascade;
+	foreign key (product_id) references production_products (product_id) on delete cascade on update cascade;
     
 alter table sales_orders
 add constraint fk_sales_orders_customer
